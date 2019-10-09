@@ -7,25 +7,81 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8174A99E234C5B7A00A32C54 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */; };
+		8174A9A3234C652900A32C54 /* AddAccountingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */; };
+		8174A9A5234C660000A32C54 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A4234C660000A32C54 /* CategoryViewController.swift */; };
+		8174A9A7234C661F00A32C54 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A6234C661F00A32C54 /* CategoryTableViewController.swift */; };
+		8174A9AA234C66C600A32C54 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A8234C66C600A32C54 /* CategoryTableViewCell.swift */; };
+		8174A9AB234C66C600A32C54 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9A9234C66C600A32C54 /* CategoryTableViewCell.xib */; };
+		8174A9AD234C69F500A32C54 /* MethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9AC234C69F500A32C54 /* MethodViewController.swift */; };
+		8174A9AF234C6A0F00A32C54 /* MethodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9AE234C6A0F00A32C54 /* MethodTableViewController.swift */; };
+		8174A9B2234C6A4400A32C54 /* MethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9B0234C6A4400A32C54 /* MethodTableViewCell.swift */; };
+		8174A9B3234C6A4400A32C54 /* MethodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9B1234C6A4400A32C54 /* MethodTableViewCell.xib */; };
+		8174A9B5234C718000A32C54 /* RecentAccountingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9B4234C718000A32C54 /* RecentAccountingHeaderView.swift */; };
+		8174A9B7234C71DD00A32C54 /* RecentAccountingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9B6234C71DD00A32C54 /* RecentAccountingHeaderView.xib */; };
+		8174A9BA234C732F00A32C54 /* RecentAccountingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9B8234C732F00A32C54 /* RecentAccountingTableViewCell.swift */; };
+		8174A9BB234C732F00A32C54 /* RecentAccountingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9B9234C732F00A32C54 /* RecentAccountingTableViewCell.xib */; };
+		8174A9BD234CBB8300A32C54 /* MonthlyReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9BC234CBB8300A32C54 /* MonthlyReportTableViewController.swift */; };
+		8174A9C0234CBC7300A32C54 /* MonthlyReportIncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9BE234CBC7300A32C54 /* MonthlyReportIncomeCell.swift */; };
+		8174A9C1234CBC7300A32C54 /* MonthlyReportIncomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9BF234CBC7300A32C54 /* MonthlyReportIncomeCell.xib */; };
+		8174A9C4234CBCDB00A32C54 /* MonthlyReportExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9C2234CBCDB00A32C54 /* MonthlyReportExpensesCell.swift */; };
+		8174A9C5234CBCDB00A32C54 /* MonthlyReportExpensesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8174A9C3234CBCDB00A32C54 /* MonthlyReportExpensesCell.xib */; };
 		81B5C008234B03380047CE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C007234B03380047CE7E /* AppDelegate.swift */; };
 		81B5C00A234B03380047CE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C009234B03380047CE7E /* SceneDelegate.swift */; };
-		81B5C00C234B03380047CE7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C00B234B03380047CE7E /* ViewController.swift */; };
 		81B5C00F234B03380047CE7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B5C00D234B03380047CE7E /* Main.storyboard */; };
 		81B5C012234B03380047CE7E /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C010234B03380047CE7E /* Task.xcdatamodeld */; };
 		81B5C014234B03390047CE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81B5C013234B03390047CE7E /* Assets.xcassets */; };
 		81B5C017234B03390047CE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81B5C015234B03390047CE7E /* LaunchScreen.storyboard */; };
+		81B5C01F234B18150047CE7E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C01E234B18150047CE7E /* OverviewViewController.swift */; };
+		81B5C021234B187A0047CE7E /* RecentAccountingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C020234B187A0047CE7E /* RecentAccountingViewController.swift */; };
+		81B5C025234B19260047CE7E /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C024234B19260047CE7E /* MonthlyReportViewController.swift */; };
+		81B5C027234B197C0047CE7E /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C026234B197C0047CE7E /* PersonalInformationViewController.swift */; };
+		81B5C029234B31A90047CE7E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C028234B31A90047CE7E /* SettingsTableViewController.swift */; };
+		81B5C02B234B49CD0047CE7E /* AddAccountingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C02A234B49CD0047CE7E /* AddAccountingViewController.swift */; };
+		81B5C02F234B82F40047CE7E /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C02E234B82F40047CE7E /* BudgetTableViewController.swift */; };
+		81B5C033234B854C0047CE7E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C032234B854C0047CE7E /* HistoryViewController.swift */; };
+		81B5C036234B8B040047CE7E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5C034234B8B040047CE7E /* HistoryTableViewCell.swift */; };
+		81B5C037234B8B040047CE7E /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B5C035234B8B040047CE7E /* HistoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountingTableViewController.swift; sourceTree = "<group>"; };
+		8174A9A4234C660000A32C54 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		8174A9A6234C661F00A32C54 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		8174A9A8234C66C600A32C54 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		8174A9A9234C66C600A32C54 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		8174A9AC234C69F500A32C54 /* MethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodViewController.swift; sourceTree = "<group>"; };
+		8174A9AE234C6A0F00A32C54 /* MethodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodTableViewController.swift; sourceTree = "<group>"; };
+		8174A9B0234C6A4400A32C54 /* MethodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodTableViewCell.swift; sourceTree = "<group>"; };
+		8174A9B1234C6A4400A32C54 /* MethodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MethodTableViewCell.xib; sourceTree = "<group>"; };
+		8174A9B4234C718000A32C54 /* RecentAccountingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentAccountingHeaderView.swift; sourceTree = "<group>"; };
+		8174A9B6234C71DD00A32C54 /* RecentAccountingHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentAccountingHeaderView.xib; sourceTree = "<group>"; };
+		8174A9B8234C732F00A32C54 /* RecentAccountingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentAccountingTableViewCell.swift; sourceTree = "<group>"; };
+		8174A9B9234C732F00A32C54 /* RecentAccountingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentAccountingTableViewCell.xib; sourceTree = "<group>"; };
+		8174A9BC234CBB8300A32C54 /* MonthlyReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportTableViewController.swift; sourceTree = "<group>"; };
+		8174A9BE234CBC7300A32C54 /* MonthlyReportIncomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportIncomeCell.swift; sourceTree = "<group>"; };
+		8174A9BF234CBC7300A32C54 /* MonthlyReportIncomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthlyReportIncomeCell.xib; sourceTree = "<group>"; };
+		8174A9C2234CBCDB00A32C54 /* MonthlyReportExpensesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportExpensesCell.swift; sourceTree = "<group>"; };
+		8174A9C3234CBCDB00A32C54 /* MonthlyReportExpensesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthlyReportExpensesCell.xib; sourceTree = "<group>"; };
 		81B5C004234B03380047CE7E /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B5C007234B03380047CE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B5C009234B03380047CE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		81B5C00B234B03380047CE7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81B5C00E234B03380047CE7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81B5C011234B03380047CE7E /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		81B5C013234B03390047CE7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81B5C016234B03390047CE7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81B5C018234B03390047CE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81B5C01E234B18150047CE7E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		81B5C020234B187A0047CE7E /* RecentAccountingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentAccountingViewController.swift; sourceTree = "<group>"; };
+		81B5C024234B19260047CE7E /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
+		81B5C026234B197C0047CE7E /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		81B5C028234B31A90047CE7E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		81B5C02A234B49CD0047CE7E /* AddAccountingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountingViewController.swift; sourceTree = "<group>"; };
+		81B5C02E234B82F40047CE7E /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
+		81B5C032234B854C0047CE7E /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		81B5C034234B8B040047CE7E /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		81B5C035234B8B040047CE7E /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +95,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8174A99F234C641C00A32C54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8174A9A0234C644500A32C54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81B5C034234B8B040047CE7E /* HistoryTableViewCell.swift */,
+				8174A9A8234C66C600A32C54 /* CategoryTableViewCell.swift */,
+				8174A9B0234C6A4400A32C54 /* MethodTableViewCell.swift */,
+				8174A9B4234C718000A32C54 /* RecentAccountingHeaderView.swift */,
+				8174A9B8234C732F00A32C54 /* RecentAccountingTableViewCell.swift */,
+				8174A9BE234CBC7300A32C54 /* MonthlyReportIncomeCell.swift */,
+				8174A9C2234CBCDB00A32C54 /* MonthlyReportExpensesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8174A9A1234C644D00A32C54 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81B5C01E234B18150047CE7E /* OverviewViewController.swift */,
+				81B5C020234B187A0047CE7E /* RecentAccountingViewController.swift */,
+				81B5C028234B31A90047CE7E /* SettingsTableViewController.swift */,
+				81B5C024234B19260047CE7E /* MonthlyReportViewController.swift */,
+				8174A9BC234CBB8300A32C54 /* MonthlyReportTableViewController.swift */,
+				81B5C026234B197C0047CE7E /* PersonalInformationViewController.swift */,
+				81B5C02A234B49CD0047CE7E /* AddAccountingViewController.swift */,
+				8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */,
+				8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */,
+				81B5C02E234B82F40047CE7E /* BudgetTableViewController.swift */,
+				81B5C032234B854C0047CE7E /* HistoryViewController.swift */,
+				8174A9A4234C660000A32C54 /* CategoryViewController.swift */,
+				8174A9A6234C661F00A32C54 /* CategoryTableViewController.swift */,
+				8174A9AC234C69F500A32C54 /* MethodViewController.swift */,
+				8174A9AE234C6A0F00A32C54 /* MethodTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		81B5BFFB234B03380047CE7E = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +159,17 @@
 			children = (
 				81B5C007234B03380047CE7E /* AppDelegate.swift */,
 				81B5C009234B03380047CE7E /* SceneDelegate.swift */,
-				81B5C00B234B03380047CE7E /* ViewController.swift */,
 				81B5C00D234B03380047CE7E /* Main.storyboard */,
+				81B5C035234B8B040047CE7E /* HistoryTableViewCell.xib */,
+				8174A9A9234C66C600A32C54 /* CategoryTableViewCell.xib */,
+				8174A9B1234C6A4400A32C54 /* MethodTableViewCell.xib */,
+				8174A9B6234C71DD00A32C54 /* RecentAccountingHeaderView.xib */,
+				8174A9B9234C732F00A32C54 /* RecentAccountingTableViewCell.xib */,
+				8174A9BF234CBC7300A32C54 /* MonthlyReportIncomeCell.xib */,
+				8174A9C3234CBCDB00A32C54 /* MonthlyReportExpensesCell.xib */,
+				8174A99F234C641C00A32C54 /* Model */,
+				8174A9A0234C644500A32C54 /* View */,
+				8174A9A1234C644D00A32C54 /* ViewController */,
 				81B5C013234B03390047CE7E /* Assets.xcassets */,
 				81B5C015234B03390047CE7E /* LaunchScreen.storyboard */,
 				81B5C018234B03390047CE7E /* Info.plist */,
@@ -129,7 +237,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				81B5C017234B03390047CE7E /* LaunchScreen.storyboard in Resources */,
+				8174A9AB234C66C600A32C54 /* CategoryTableViewCell.xib in Resources */,
 				81B5C014234B03390047CE7E /* Assets.xcassets in Resources */,
+				8174A9BB234C732F00A32C54 /* RecentAccountingTableViewCell.xib in Resources */,
+				81B5C037234B8B040047CE7E /* HistoryTableViewCell.xib in Resources */,
+				8174A9B3234C6A4400A32C54 /* MethodTableViewCell.xib in Resources */,
+				8174A9C1234CBC7300A32C54 /* MonthlyReportIncomeCell.xib in Resources */,
+				8174A9B7234C71DD00A32C54 /* RecentAccountingHeaderView.xib in Resources */,
+				8174A9C5234CBCDB00A32C54 /* MonthlyReportExpensesCell.xib in Resources */,
 				81B5C00F234B03380047CE7E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +256,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8174A9BD234CBB8300A32C54 /* MonthlyReportTableViewController.swift in Sources */,
+				8174A9C4234CBCDB00A32C54 /* MonthlyReportExpensesCell.swift in Sources */,
+				81B5C025234B19260047CE7E /* MonthlyReportViewController.swift in Sources */,
+				8174A9C0234CBC7300A32C54 /* MonthlyReportIncomeCell.swift in Sources */,
+				8174A99E234C5B7A00A32C54 /* BudgetViewController.swift in Sources */,
+				81B5C02F234B82F40047CE7E /* BudgetTableViewController.swift in Sources */,
+				8174A9A7234C661F00A32C54 /* CategoryTableViewController.swift in Sources */,
+				8174A9B2234C6A4400A32C54 /* MethodTableViewCell.swift in Sources */,
+				81B5C036234B8B040047CE7E /* HistoryTableViewCell.swift in Sources */,
+				8174A9AF234C6A0F00A32C54 /* MethodTableViewController.swift in Sources */,
+				8174A9B5234C718000A32C54 /* RecentAccountingHeaderView.swift in Sources */,
+				8174A9A3234C652900A32C54 /* AddAccountingTableViewController.swift in Sources */,
+				81B5C02B234B49CD0047CE7E /* AddAccountingViewController.swift in Sources */,
+				81B5C033234B854C0047CE7E /* HistoryViewController.swift in Sources */,
 				81B5C012234B03380047CE7E /* Task.xcdatamodeld in Sources */,
-				81B5C00C234B03380047CE7E /* ViewController.swift in Sources */,
+				8174A9AD234C69F500A32C54 /* MethodViewController.swift in Sources */,
+				81B5C021234B187A0047CE7E /* RecentAccountingViewController.swift in Sources */,
+				81B5C027234B197C0047CE7E /* PersonalInformationViewController.swift in Sources */,
+				8174A9A5234C660000A32C54 /* CategoryViewController.swift in Sources */,
+				81B5C029234B31A90047CE7E /* SettingsTableViewController.swift in Sources */,
+				8174A9BA234C732F00A32C54 /* RecentAccountingTableViewCell.swift in Sources */,
+				81B5C01F234B18150047CE7E /* OverviewViewController.swift in Sources */,
 				81B5C008234B03380047CE7E /* AppDelegate.swift in Sources */,
 				81B5C00A234B03380047CE7E /* SceneDelegate.swift in Sources */,
+				8174A9AA234C66C600A32C54 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
