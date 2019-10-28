@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813B943E235EA84E007ACE7C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B943D235EA84E007ACE7C /* Record.swift */; };
+		813B9441235F3F60007ACE7C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813B9440235F3F60007ACE7C /* MapKit.framework */; };
+		813B9443235F47CC007ACE7C /* NearbyLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B9442235F47CC007ACE7C /* NearbyLocationsViewController.swift */; };
 		8174A99E234C5B7A00A32C54 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */; };
 		8174A9A3234C652900A32C54 /* AddAccountingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */; };
 		8174A9A5234C660000A32C54 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8174A9A4234C660000A32C54 /* CategoryViewController.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		813B943D235EA84E007ACE7C /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		813B9440235F3F60007ACE7C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		813B9442235F47CC007ACE7C /* NearbyLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsViewController.swift; sourceTree = "<group>"; };
 		8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountingTableViewController.swift; sourceTree = "<group>"; };
 		8174A9A4234C660000A32C54 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -89,15 +95,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B9441235F3F60007ACE7C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		813B943F235F3F60007ACE7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				813B9440235F3F60007ACE7C /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8174A99F234C641C00A32C54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				813B943D235EA84E007ACE7C /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +143,7 @@
 				81B5C026234B197C0047CE7E /* PersonalInformationViewController.swift */,
 				81B5C02A234B49CD0047CE7E /* AddAccountingViewController.swift */,
 				8174A9A2234C652900A32C54 /* AddAccountingTableViewController.swift */,
+				813B9442235F47CC007ACE7C /* NearbyLocationsViewController.swift */,
 				8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */,
 				81B5C02E234B82F40047CE7E /* BudgetTableViewController.swift */,
 				81B5C032234B854C0047CE7E /* HistoryViewController.swift */,
@@ -143,6 +160,7 @@
 			children = (
 				81B5C006234B03380047CE7E /* Task */,
 				81B5C005234B03380047CE7E /* Products */,
+				813B943F235F3F60007ACE7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,8 +292,10 @@
 				8174A9AD234C69F500A32C54 /* MethodViewController.swift in Sources */,
 				81B5C021234B187A0047CE7E /* RecentAccountingViewController.swift in Sources */,
 				81B5C027234B197C0047CE7E /* PersonalInformationViewController.swift in Sources */,
+				813B9443235F47CC007ACE7C /* NearbyLocationsViewController.swift in Sources */,
 				8174A9A5234C660000A32C54 /* CategoryViewController.swift in Sources */,
 				81B5C029234B31A90047CE7E /* SettingsTableViewController.swift in Sources */,
+				813B943E235EA84E007ACE7C /* Record.swift in Sources */,
 				8174A9BA234C732F00A32C54 /* RecentAccountingTableViewCell.swift in Sources */,
 				81B5C01F234B18150047CE7E /* OverviewViewController.swift in Sources */,
 				81B5C008234B03380047CE7E /* AppDelegate.swift in Sources */,

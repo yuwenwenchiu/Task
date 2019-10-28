@@ -9,7 +9,14 @@
 import UIKit
 
 class RecentAccountingTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var recordImage: UIImageView!
+    @IBOutlet weak var recordCategory: UILabel!
+    @IBOutlet weak var recordRemarks: UILabel!
+    @IBOutlet weak var recordLocation: UILabel!
+    @IBOutlet weak var recordMethod: UILabel!
+    @IBOutlet weak var recordMoney: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

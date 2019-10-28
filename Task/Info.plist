@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
+	<key>NSCameraUsageDescription</key>
+	<string>You need to grant the app access to your camera in order to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You need to grant the app access to your photo library so you can pick your favorite photo.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,5 +66,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Get location info to show you good services.</string>
 </dict>
 </plist>
