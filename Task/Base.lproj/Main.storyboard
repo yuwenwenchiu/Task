@@ -186,7 +186,8 @@
                                     <constraint firstAttribute="width" constant="62.5" id="QJz-sK-k2L"/>
                                     <constraint firstAttribute="height" constant="62.5" id="qxG-vb-fFo"/>
                                 </constraints>
-                                <state key="normal" image="checkmark" catalog="system"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="取消"/>
                                 <connections>
                                     <action selector="checkButton:" destination="tc8-Lo-Sij" eventType="touchUpInside" id="QzH-UH-pHp"/>
                                 </connections>
@@ -195,29 +196,41 @@
                                 <rect key="frame" x="0.0" y="62.5" width="414" height="469.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="62" id="MRV-eR-gfN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="62" id="MRV-eR-gfN" customClass="NearbyLocationsTableViewCell" customModule="Task" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MRV-eR-gfN" id="WWN-aA-vbr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近地點名稱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FX-hg-8xW">
-                                                    <rect key="frame" x="15" y="13.5" width="384" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="W0V-An-tgP"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="axt-KQ-CfV">
+                                                    <rect key="frame" x="15" y="10" width="384" height="42"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近地點名稱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kty-3k-5mS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIQ-jg-Wg2">
+                                                            <rect key="frame" x="0.0" y="24" width="31" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="8FX-hg-8xW" secondAttribute="trailing" constant="15" id="C8d-do-zCK"/>
-                                                <constraint firstItem="8FX-hg-8xW" firstAttribute="leading" secondItem="WWN-aA-vbr" secondAttribute="leading" constant="15" id="n6O-S0-lPj"/>
-                                                <constraint firstItem="8FX-hg-8xW" firstAttribute="centerY" secondItem="WWN-aA-vbr" secondAttribute="centerY" id="qjB-lp-zfe"/>
+                                                <constraint firstItem="axt-KQ-CfV" firstAttribute="leading" secondItem="WWN-aA-vbr" secondAttribute="leading" constant="15" id="GmX-Ek-zjN"/>
+                                                <constraint firstItem="axt-KQ-CfV" firstAttribute="centerY" secondItem="WWN-aA-vbr" secondAttribute="centerY" id="QYC-CM-tpl"/>
+                                                <constraint firstAttribute="trailing" secondItem="axt-KQ-CfV" secondAttribute="trailing" constant="15" id="iGG-h4-gpC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationAddressLabel" destination="WIQ-jg-Wg2" id="y7k-91-tlZ"/>
+                                            <outlet property="locationNameLabel" destination="Kty-3k-5mS" id="gVW-xz-xMM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -238,6 +251,10 @@
                         <viewLayoutGuide key="safeArea" id="aic-Ck-gV1"/>
                     </view>
                     <navigationItem key="navigationItem" title="搜尋地點" id="Xdy-Ha-hYU"/>
+                    <connections>
+                        <outlet property="locationSearchBar" destination="QlG-aE-Wk5" id="mRW-a9-i80"/>
+                        <outlet property="locationsTableView" destination="BxA-gM-n9z" id="34b-tA-61U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBi-61-5gv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,7 +454,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="X0i-tg-nPb"/>
                                                     </constraints>
-                                                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -473,7 +490,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="qQV-W8-y3J"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -1767,7 +1784,6 @@
         <image name="bell.fill" catalog="system" width="64" height="62"/>
         <image name="book.fill" catalog="system" width="64" height="50"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
-        <image name="checkmark" catalog="system" width="64" height="56"/>
         <image name="creditcard.fill" catalog="system" width="64" height="44"/>
         <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="gift.fill" catalog="system" width="64" height="64"/>

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import MapKit
 import CoreData
 
-class AddAccountingTableViewController: UITableViewController, UIPickerViewDelegate,  UIPickerViewDataSource {
+class AddAccountingTableViewController: UITableViewController, UIPickerViewDelegate,  UIPickerViewDataSource, NearbyLocationsViewControllerDelegate {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateDatePicker: UIDatePicker! 
@@ -31,10 +30,12 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     var eCategory = ["飲食", "交通", "購物", "休閒娛樂", "生活開銷"]
     var iCategory = ["薪資", "獎金", "投資", "接案", "支援"]
     
+    // Picker的顯示狀態
     var isDatePickerShown = false
     var isMethodPickerShown = false
     var isCategoryPickerShown = false
     
+    // 包含Picker的Cell位置
     let datePickerCellIndexPath = IndexPath(row: 1, section: 0)
     let methodPickerCellIndexPath = IndexPath(row: 3, section: 0)
     let categoryPickerCellIndexPath = IndexPath(row: 5, section: 0)
@@ -55,6 +56,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         if segue.identifier == "showLocations" {
             
             NearbyLocationsViewController = segue.destination as? NearbyLocationsViewController
+            NearbyLocationsViewController?.NearbyLocationsViewControllerDelegate = self
         }
     }
     
@@ -73,24 +75,21 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     
     @IBAction func searchNearby(_ sender: UIButton) {
         
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = "store"
-        
-        
-        
     }
     
     // MARK: - Picker view data source
+    // Picker都有幾個滾輪？方式、類別都只有1個
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
     }
     
+    // 滾輪有幾列？依據不同滾輪和收支，回傳不同的列數
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        
-        if pickerView.tag == 0 {
+        switch pickerView {
             
+        case methodPicker:
             if eiType == 0 {
                 
                 return eMethod.count
@@ -98,8 +97,8 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 return iMethod.count
             }
-        } else {
             
+        case categoryPicker:
             if eiType == 0 {
                 
                 return eCategory.count
@@ -107,15 +106,19 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 return iCategory.count
             }
+            
+        default:
+            return 0
         }
+        
     }
     
+    // 每列顯示什麼？依據不同滾輪、收支和列數，回傳不同的資料
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         switch pickerView {
             
         case methodPicker:
-            
             if eiType == 0 {
                 
                 return eMethod[row]
@@ -123,8 +126,8 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 return iMethod[row]
             }
-        case categoryPicker:
             
+        case categoryPicker:
             if eiType == 0 {
                 
                 return eCategory[row]
@@ -132,16 +135,18 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 return iCategory[row]
             }
-        default:
             
+        default:
             return nil
         }
     }
     
+    // 選擇列後要做什麼？依據不同滾輪、收支和所在列，顯示不同的資料
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if pickerView.tag == 0 {
+        switch pickerView {
             
+        case methodPicker:
             if eiType == 0 {
                 
                 methodLabel.text = eMethod[row]
@@ -149,8 +154,8 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 methodLabel.text = iMethod[row]
             }
-        } else {
             
+        case categoryPicker:
             if eiType == 0 {
                 
                 categoryLabel.text = eCategory[row]
@@ -158,6 +163,9 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 
                 categoryLabel.text = iCategory[row]
             }
+            
+        default:
+            break
         }
     }
     
@@ -178,6 +186,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         return 9
     }
     
+    // 選擇列後要做什麼？依據不同位置展開包含Picker的Cell，並且修改Picker的顯示狀態、更新tableView
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -219,6 +228,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         }
     }
     
+    // 每列的高度？依據不同位置、Picker的顯示狀態，回傳相應的高度
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath {
@@ -249,61 +259,8 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         }
     }
     
-    
-    //     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-    //
-    //     // Configure the cell...
-    //
-    //     return cell
-    //     }
-    
-    
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func passLocationName(name: String) {
+        
+        locationTextField.text = name
+    }
 }

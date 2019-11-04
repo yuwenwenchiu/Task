@@ -81,22 +81,25 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func eiChanged(_ sender: UISegmentedControl) {
-        
-        AddAccountingTableViewController?.methodPicker.dataSource = AddAccountingTableViewController
-        AddAccountingTableViewController?.categoryPicker.dataSource = AddAccountingTableViewController
 
         AddAccountingTableViewController?.eiType = eiSegmentedControl.selectedSegmentIndex
         
-        if eiSegmentedControl.selectedSegmentIndex == 0 {
-            
+        switch eiSegmentedControl.selectedSegmentIndex {
+        
+        case 0:
             AddAccountingTableViewController?.methodLabel.text = AddAccountingTableViewController?.eMethod[0]
             AddAccountingTableViewController?.categoryLabel.text = AddAccountingTableViewController?.eCategory[0]
             
-        } else {
-            
+        case 1:
             AddAccountingTableViewController?.methodLabel.text = AddAccountingTableViewController?.iMethod[0]
             AddAccountingTableViewController?.categoryLabel.text = AddAccountingTableViewController?.iCategory[0]
+        
+        default:
+            break
         }
+        
+        AddAccountingTableViewController?.methodPicker.dataSource = AddAccountingTableViewController
+        AddAccountingTableViewController?.categoryPicker.dataSource = AddAccountingTableViewController
     }
     
     @IBAction func selectedImage(_ sender: UIButton) {
@@ -147,7 +150,6 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
         }
         
         dismiss(animated: true, completion: nil)
-        
     }
     
 }
