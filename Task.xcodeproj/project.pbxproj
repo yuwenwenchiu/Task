@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		813B943E235EA84E007ACE7C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B943D235EA84E007ACE7C /* Record.swift */; };
 		813B9441235F3F60007ACE7C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813B9440235F3F60007ACE7C /* MapKit.framework */; };
 		813B9443235F47CC007ACE7C /* NearbyLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B9442235F47CC007ACE7C /* NearbyLocationsViewController.swift */; };
 		816BE4572368213C0088BF5D /* NearbyLocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BE4562368213C0088BF5D /* NearbyLocationsTableViewCell.swift */; };
@@ -49,7 +48,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		813B943D235EA84E007ACE7C /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		813B9440235F3F60007ACE7C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		813B9442235F47CC007ACE7C /* NearbyLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsViewController.swift; sourceTree = "<group>"; };
 		816BE4562368213C0088BF5D /* NearbyLocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationsTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		8174A99F234C641C00A32C54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				813B943D235EA84E007ACE7C /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				813B9443235F47CC007ACE7C /* NearbyLocationsViewController.swift in Sources */,
 				8174A9A5234C660000A32C54 /* CategoryViewController.swift in Sources */,
 				81B5C029234B31A90047CE7E /* SettingsTableViewController.swift in Sources */,
-				813B943E235EA84E007ACE7C /* Record.swift in Sources */,
 				8174A9BA234C732F00A32C54 /* RecentAccountingTableViewCell.swift in Sources */,
 				81B5C01F234B18150047CE7E /* OverviewViewController.swift in Sources */,
 				81B5C008234B03380047CE7E /* AppDelegate.swift in Sources */,

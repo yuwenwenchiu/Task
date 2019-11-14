@@ -14,6 +14,7 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var eiSegmentedControl: UISegmentedControl!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var inputMoneyTextField: UITextField!
+    @IBOutlet weak var hiddenSaveButton: UIButton!
     
     var record: RecordMO!
     
@@ -40,7 +41,7 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    @IBAction func saveRecord(_ sender: UIBarButtonItem) {
+    @IBAction func saveRecord(_ sender: Any) {
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             
@@ -53,6 +54,9 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
                 record.image = imageButton.currentImage?.pngData()
                 record.money = Int64((inputMoneyTextField.text! as NSString).integerValue)
                 record.date = AddAccountingTableViewController?.dateLabel.text
+                record.dateY = AddAccountingTableViewController?.dateY
+                record.dateM = AddAccountingTableViewController?.dateM
+                record.dateD = AddAccountingTableViewController?.dateD
                 record.method = AddAccountingTableViewController?.methodLabel.text
                 record.category = AddAccountingTableViewController?.categoryLabel.text
                 record.remarks = AddAccountingTableViewController?.remarksTextField.text
@@ -63,6 +67,9 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
                 record.image = imageButton.currentImage?.pngData()
                 record.money = Int64(inputMoneyTextField.text!)!
                 record.date = AddAccountingTableViewController?.dateLabel.text
+                record.dateY = AddAccountingTableViewController?.dateY
+                record.dateM = AddAccountingTableViewController?.dateM
+                record.dateD = AddAccountingTableViewController?.dateD
                 record.method = AddAccountingTableViewController?.methodLabel.text
                 record.category = AddAccountingTableViewController?.categoryLabel.text
                 record.remarks = AddAccountingTableViewController?.remarksTextField.text
@@ -74,7 +81,7 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
             }
             
             appDelegate.saveContext()
-            print("儲存中...")
+            print("帳務儲存中...")
         }
         
         dismiss(animated: true, completion: nil)

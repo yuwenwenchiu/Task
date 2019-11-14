@@ -15,6 +15,8 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     
     var records: [RecordMO] = []
     
+    let dataImage = UIImage(systemName: "photo")?.withTintColor(.link).pngData()
+    
     @IBOutlet weak var recentAccountingTableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,6 +27,7 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
+        // 取得AppDelegate物件
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             
             let context = appDelegate.persistentContainer.viewContext
@@ -66,7 +69,7 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentAccountingCell", for: indexPath) as! RecentAccountingTableViewCell
-        cell.recordImage.image = UIImage(data: records[indexPath.row].image!)
+        cell.recordImage.image = UIImage(data: records[indexPath.row].image ?? dataImage!)
         cell.recordCategory.text = records[indexPath.row].category
         cell.recordRemarks.text = records[indexPath.row].remarks == "" ? "備註" : records[indexPath.row].remarks
         cell.recordLocation.text = records[indexPath.row].location == "" ? "地點" : records[indexPath.row].location
@@ -116,7 +119,14 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
         
         let editAction = UIContextualAction(style: .destructive, title: "編輯") {
             (action, sourceView, completionHandler) in
-           
+            
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddAccountingPage") as? AddAccountingViewController {
+
+                //controller.hiddenSaveButton.isHidden = false
+                //controller.inputMoneyTextField.text = String(self.records[indexPath.row].money)
+                self.present(controller, animated: true, completion: nil)
+            }
+                    
             completionHandler(true)
         }
         editAction.backgroundColor = .systemGray
@@ -138,9 +148,8 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
         switch type {
         
         case .insert:
-            if let newIndexPath = newIndexPath {
-                recentAccountingTableView.insertRows(at: [newIndexPath], with: .fade)
-            }
+            let newIndexPath = IndexPath(row: 0, section: 0)
+            recentAccountingTableView.insertRows(at: [newIndexPath], with: .fade)
             
         case .delete:
             if let indexPath = indexPath {
@@ -167,15 +176,5 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
         
         recentAccountingTableView.endUpdates()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

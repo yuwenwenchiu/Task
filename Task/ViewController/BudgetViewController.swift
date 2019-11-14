@@ -9,22 +9,56 @@
 import UIKit
 
 class BudgetViewController: UIViewController {
-
+    
+    @IBOutlet weak var budgetTextField: UITextField!
+    
+    var BudgetTableViewController: BudgetTableViewController?
+    
+    var budget: BudgetMO!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dismissKeyboard() {
+        
+        budgetTextField.resignFirstResponder()
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        if segue.identifier == "budgetInfo"{
+            
+            BudgetTableViewController = segue.destination as? BudgetTableViewController
+        }
+    }
+    
+    @IBAction func saveBudget(_ sender: UIBarButtonItem) {
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            
+            budget = BudgetMO(context: appDelegate.persistentContainer.viewContext)
+            
+            budget.money = Int64((budgetTextField.text! as NSString).integerValue)
+            budget.name = BudgetTableViewController?.budgetNameTextField.text
+            budget.date = ((BudgetTableViewController?.dateY!)! + BudgetTableViewController!.dateM + (BudgetTableViewController?.dateD!)!)
+            
+            appDelegate.saveContext()
+            print("心願儲存中...")
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func inputBudget(_ sender: UITextField) {
+        
+        BudgetTableViewController?.monthlyDepositLabel.text = "$ " + "\(budgetTextField.text ?? String(0))"
+        BudgetTableViewController?.budgetMoney = Int(budgetTextField.text ?? String(0))
+        print("儲蓄心願的目標金額：\(BudgetTableViewController?.budgetMoney)")
+    }
+    
 }

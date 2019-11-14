@@ -8,14 +8,29 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 建立通知中心並向使用者要求授權，.alert表示通知會以訊息框的方式呈現。.sound會有音效、.badge會有紅色圈數字在APPicon右上角。
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert]) { (granted, error) in
+            
+            if granted == false {
+                
+                print("使用者未授權")
+            }
+        }
+        
+        // 讓APP在前景狀態下可以收到通知
+        center.delegate = self
+        
         return true
     }
 
@@ -31,6 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    // 在前景收到通知時會觸發
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("在前景收到通知...")
+        completionHandler([.alert])
     }
 
     // MARK: - Core Data stack

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Budget" representedClassName="BudgetMO" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="String"/>
+        <attribute name="money" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
     <entity name="Record" representedClassName="RecordMO" syncable="YES" codeGenerationType="class">
         <attribute name="category" attributeType="String"/>
-        <attribute name="date" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="dateD" optional="YES" attributeType="String"/>
+        <attribute name="dateM" optional="YES" attributeType="String"/>
+        <attribute name="dateY" attributeType="String"/>
         <attribute name="eiType" attributeType="Integer 64" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="location" optional="YES" attributeType="String"/>
@@ -11,6 +19,7 @@
         <attribute name="remarks" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Record" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Record" positionX="-272.5" positionY="16.7578125" width="128" height="208"/>
+        <element name="Budget" positionX="-63" positionY="63" width="128" height="88"/>
     </elements>
 </model>
