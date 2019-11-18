@@ -17,12 +17,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var budgets: [BudgetMO] = []
     
+    let formatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 從資料儲存區中讀取資料
         let fetchRequest: NSFetchRequest<BudgetMO> = BudgetMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "budgetDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // 取得AppDelegate物件
@@ -62,10 +64,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        formatter.dateFormat = "yyyyMMdd"
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
-        cell.dateLabel.text = budgets[indexPath.row].date
-        cell.nameLabel.text = budgets[indexPath.row].name
-        cell.moneyLabel.text = "$ " + String(budgets[indexPath.row].money)
+        cell.dateLabel.text = formatter.string(from: budgets[indexPath.row].budgetDate ?? Date())
+        cell.nameLabel.text = budgets[indexPath.row].budgetName
+        cell.moneyLabel.text = "$ " + (budgets[indexPath.row].budgetMoney ?? String(0))
         
         return cell
     }

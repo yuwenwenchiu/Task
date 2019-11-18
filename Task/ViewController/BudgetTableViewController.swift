@@ -11,19 +11,20 @@ import UIKit
 class BudgetTableViewController: UITableViewController {
     
     @IBOutlet weak var budgetNameTextField: UITextField!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var budgetDateLabel: UILabel!
     @IBOutlet weak var budgetDatePicker: UIDatePicker!
     @IBOutlet weak var monthlyDepositLabel: UILabel!
     
     // 儲蓄心願的目標金額
     var budgetMoney: Int?
     
-    let formatterY = DateFormatter()
-    var dateY: String!
-    let formatterM = DateFormatter()
-    var dateM: String!
-    let formatterD = DateFormatter()
-    var dateD: String!
+//    let formatterY = DateFormatter()
+//    var dateY: String!
+//    let formatterM = DateFormatter()
+//    var dateM: String!
+//    let formatterD = DateFormatter()
+//    var dateD: String!
+    let formatter = DateFormatter()
     let today = Date()
     
     // Picker的顯示狀態
@@ -35,21 +36,25 @@ class BudgetTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        formatterY.dateFormat = "yyyy"
-        dateY = formatterY.string(from: Date())
-        formatterM.dateFormat = "MM"
-        dateM = formatterM.string(from: Date())
-        formatterD.dateFormat = "dd"
-        dateD = formatterD.string(from: Date())
-        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+//        formatterY.dateFormat = "yyyy"
+//        dateY = formatterY.string(from: Date())
+//        formatterM.dateFormat = "MM"
+//        dateM = formatterM.string(from: Date())
+//        formatterD.dateFormat = "dd"
+//        dateD = formatterD.string(from: Date())
+//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        budgetDateLabel.text = formatter.string(from: Date())
     }
     
     @IBAction func dateValueChanged(_ sender: UIDatePicker) {
         
-        dateY = formatterY.string(from: sender.date)
-        dateM = formatterM.string(from: sender.date)
-        dateD = formatterD.string(from: sender.date)
-        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+//        dateY = formatterY.string(from: sender.date)
+//        dateM = formatterM.string(from: sender.date)
+//        dateD = formatterD.string(from: sender.date)
+//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+        budgetDateLabel.text = formatter.string(from: budgetDatePicker.date)
         
         // 今天和儲蓄心願的日期差距
         let diffDateComponents = Calendar.current.dateComponents([.day], from: today, to: budgetDatePicker.date)

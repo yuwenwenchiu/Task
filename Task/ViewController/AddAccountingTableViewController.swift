@@ -11,23 +11,24 @@ import CoreData
 
 class AddAccountingTableViewController: UITableViewController, UIPickerViewDelegate,  UIPickerViewDataSource, NearbyLocationsViewControllerDelegate {
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var dateDatePicker: UIDatePicker! 
-    @IBOutlet weak var methodLabel: UILabel!
-    @IBOutlet weak var methodPicker: UIPickerView!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var categoryPicker: UIPickerView!
-    @IBOutlet weak var remarksTextField: UITextField!
-    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var recordDateLabel: UILabel!
+    @IBOutlet weak var recordDatePicker: UIDatePicker!
+    @IBOutlet weak var recordMethodLabel: UILabel!
+    @IBOutlet weak var recordMethodPicker: UIPickerView!
+    @IBOutlet weak var recordCategoryLabel: UILabel!
+    @IBOutlet weak var recordCategoryPicker: UIPickerView!
+    @IBOutlet weak var recordRemarksTextField: UITextField!
+    @IBOutlet weak var recordLocationTextField: UITextField!
     
     var eiType = 0
     
-    let formatterY = DateFormatter()
-    var dateY: String!
-    let formatterM = DateFormatter()
-    var dateM: String!
-    let formatterD = DateFormatter()
-    var dateD: String!
+//    let formatterY = DateFormatter()
+//    var dateY: String!
+//    let formatterM = DateFormatter()
+//    var dateM: String!
+//    let formatterD = DateFormatter()
+//    var dateD: String!
+    let formatter = DateFormatter()
     
     var eMethod = ["現金", "信用卡", "轉帳", "Apple Pay", "Line Pay"]
     var iMethod = ["匯款", "現金", "支票"]
@@ -50,15 +51,23 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        formatterY.dateFormat = "yyyy"
-        dateY = formatterY.string(from: Date())
-        formatterM.dateFormat = "MM"
-        dateM = formatterM.string(from: Date())
-        formatterD.dateFormat = "dd"
-        dateD = formatterD.string(from: Date())
-        dateLabel.text = dateY + "-" + dateM + "-" + dateD
-        methodLabel.text = eMethod[0]
-        categoryLabel.text = eCategory[0]
+//        formatterY.dateFormat = "yyyy"
+//        dateY = formatterY.string(from: Date())
+//        formatterM.dateFormat = "MM"
+//        dateM = formatterM.string(from: Date())
+//        formatterD.dateFormat = "dd"
+//        dateD = formatterD.string(from: Date())
+//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+        
+//        methodLabel.text = eMethod[0]
+//        categoryLabel.text = eCategory[0]
+
+        formatter.dateFormat = "yyyy-MM-dd"
+        recordDateLabel.text = formatter.string(from: Date())
+        
+        recordMethodLabel.text = eMethod[0]
+        recordCategoryLabel.text = eCategory[0]
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,21 +79,35 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         }
     }
     
-    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+    
+    @IBAction func recordDateChanged(_ sender: UIDatePicker) {
         
-        dateY = formatterY.string(from: sender.date)
-        dateM = formatterM.string(from: sender.date)
-        dateD = formatterD.string(from: sender.date)
-        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+        recordDateLabel.text = formatter.string(from: recordDatePicker.date)
     }
     
-    @IBAction func closeRemarksKeyboard(_ sender: UITextField) {
+    @IBAction func closeRecordRemarksKeyboard(_ sender: UITextField) {
         
     }
     
-    @IBAction func closeLocationKeyboard(_ sender: UITextField) {
+    @IBAction func closeRecordLocaitonKeyboard(_ sender: UITextField) {
         
     }
+    
+//    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+//
+//        dateY = formatterY.string(from: sender.date)
+//        dateM = formatterM.string(from: sender.date)
+//        dateD = formatterD.string(from: sender.date)
+//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
+//    }
+//
+//    @IBAction func closeRemarksKeyboard(_ sender: UITextField) {
+//
+//    }
+//
+//    @IBAction func closeLocationKeyboard(_ sender: UITextField) {
+//
+//    }
     
     @IBAction func searchNearby(_ sender: UIButton) {
         
@@ -102,7 +125,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         
         switch pickerView {
             
-        case methodPicker:
+        case recordMethodPicker:
             if eiType == 0 {
                 
                 return eMethod.count
@@ -111,7 +134,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 return iMethod.count
             }
             
-        case categoryPicker:
+        case recordCategoryPicker:
             if eiType == 0 {
                 
                 return eCategory.count
@@ -131,7 +154,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         
         switch pickerView {
             
-        case methodPicker:
+        case recordMethodPicker:
             if eiType == 0 {
                 
                 return eMethod[row]
@@ -140,7 +163,7 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
                 return iMethod[row]
             }
             
-        case categoryPicker:
+        case recordCategoryPicker:
             if eiType == 0 {
                 
                 return eCategory[row]
@@ -159,22 +182,22 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
         
         switch pickerView {
             
-        case methodPicker:
+        case recordMethodPicker:
             if eiType == 0 {
                 
-                methodLabel.text = eMethod[row]
+                recordMethodLabel.text = eMethod[row]
             } else {
                 
-                methodLabel.text = iMethod[row]
+                recordMethodLabel.text = iMethod[row]
             }
             
-        case categoryPicker:
+        case recordCategoryPicker:
             if eiType == 0 {
                 
-                categoryLabel.text = eCategory[row]
+                recordCategoryLabel.text = eCategory[row]
             } else {
                 
-                categoryLabel.text = iCategory[row]
+                recordCategoryLabel.text = iCategory[row]
             }
             
         default:
@@ -274,6 +297,6 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     
     func passLocationName(name: String) {
         
-        locationTextField.text = name
+        recordLocationTextField.text = name
     }
 }

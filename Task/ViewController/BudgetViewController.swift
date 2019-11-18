@@ -43,9 +43,11 @@ class BudgetViewController: UIViewController {
             
             budget = BudgetMO(context: appDelegate.persistentContainer.viewContext)
             
-            budget.money = Int64((budgetTextField.text! as NSString).integerValue)
-            budget.name = BudgetTableViewController?.budgetNameTextField.text
-            budget.date = ((BudgetTableViewController?.dateY!)! + BudgetTableViewController!.dateM + (BudgetTableViewController?.dateD!)!)
+            budget.budgetID = UUID().uuidString
+            budget.budgetMoney = budgetTextField.text
+            budget.budgetName = BudgetTableViewController?.budgetNameTextField.text
+            budget.budgetDate = BudgetTableViewController?.budgetDatePicker.date
+            budget.budgetDeposit = BudgetTableViewController?.monthlyDepositLabel.text
             
             appDelegate.saveContext()
             print("心願儲存中...")
@@ -58,7 +60,7 @@ class BudgetViewController: UIViewController {
         
         BudgetTableViewController?.monthlyDepositLabel.text = "$ " + "\(budgetTextField.text ?? String(0))"
         BudgetTableViewController?.budgetMoney = Int(budgetTextField.text ?? String(0))
-        print("儲蓄心願的目標金額：\(BudgetTableViewController?.budgetMoney)")
+        print("儲蓄心願的目標金額：\(String(describing: BudgetTableViewController?.budgetMoney))")
     }
     
 }

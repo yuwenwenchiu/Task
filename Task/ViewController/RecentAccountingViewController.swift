@@ -24,7 +24,7 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
 
         // 從資料儲存區中讀取資料
         let fetchRequest: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "recordDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // 取得AppDelegate物件
@@ -69,12 +69,12 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentAccountingCell", for: indexPath) as! RecentAccountingTableViewCell
-        cell.recordImage.image = UIImage(data: records[indexPath.row].image ?? dataImage!)
-        cell.recordCategory.text = records[indexPath.row].category
-        cell.recordRemarks.text = records[indexPath.row].remarks == "" ? "備註" : records[indexPath.row].remarks
-        cell.recordLocation.text = records[indexPath.row].location == "" ? "地點" : records[indexPath.row].location
-        cell.recordMethod.text = records[indexPath.row].method
-        cell.recordMoney.text = String(records[indexPath.row].money)
+        cell.recordImage.image = UIImage(data: records[indexPath.row].recordImage ?? dataImage!)
+        cell.recordCategory.text = records[indexPath.row].recordCategory
+        cell.recordRemarks.text = records[indexPath.row].recordRemarks == "" ? "備註" : records[indexPath.row].recordRemarks
+        cell.recordLocation.text = records[indexPath.row].recordLocation == "" ? "地點" : records[indexPath.row].recordLocation
+        cell.recordMethod.text = records[indexPath.row].recordMethod
+        cell.recordMoney.text = records[indexPath.row].recordMoney
                 
         return cell
     }
