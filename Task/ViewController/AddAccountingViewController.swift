@@ -19,8 +19,27 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
     
     var AddAccountingTableViewController: AddAccountingTableViewController?
     
+    let dataImage = UIImage(systemName: "photo")?.withTintColor(.link).pngData()
+    
+    let formatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if record != nil {
+            
+            recordeiSegmentedControl.selectedSegmentIndex = Int(record.recordeiType)
+            recordImageButton.setImage(UIImage(data: record.recordImage ?? dataImage!), for: .normal)
+            recordMoneyTextField.text = record.recordMoney
+            AddAccountingTableViewController?.recordDateLabel.text = formatter.string(from: record.recordDate ?? Date())
+            AddAccountingTableViewController?.recordDatePicker.date = record.recordDate ?? Date()
+            AddAccountingTableViewController?.recordMethodLabel.text = record.recordMethod
+            AddAccountingTableViewController?.recordCategoryLabel.text = record.recordCategory
+            AddAccountingTableViewController?.recordRemarksTextField.text = record.recordRemarks
+            AddAccountingTableViewController?.recordLocationTextField.text = record.recordLocation
+        }
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -40,6 +59,11 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
+    @IBAction func backToPrevious(_ sender: UIBarButtonItem) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveRecord(_ sender: Any) {
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
@@ -55,39 +79,6 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
             record.recordCategory = AddAccountingTableViewController?.recordCategoryLabel.text
             record.recordRemarks = AddAccountingTableViewController?.recordRemarksTextField.text
             record.recordLocation = AddAccountingTableViewController?.recordLocationTextField.text
-            
-//            switch eiSegmentedControl.selectedSegmentIndex {
-//
-//            case 0:
-//                record.eiType = 0
-//                record.image = imageButton.currentImage?.pngData()
-//                record.money = Int64((inputMoneyTextField.text! as NSString).integerValue)
-//                record.date = AddAccountingTableViewController?.dateLabel.text
-//                record.dateY = AddAccountingTableViewController?.dateY
-//                record.dateM = AddAccountingTableViewController?.dateM
-//                record.dateD = AddAccountingTableViewController?.dateD
-//                record.method = AddAccountingTableViewController?.methodLabel.text
-//                record.category = AddAccountingTableViewController?.categoryLabel.text
-//                record.remarks = AddAccountingTableViewController?.remarksTextField.text
-//                record.location = AddAccountingTableViewController?.locationTextField.text
-//
-//            case 1:
-//                record.eiType = 1
-//                record.image = imageButton.currentImage?.pngData()
-//                record.money = Int64(inputMoneyTextField.text!)!
-//                record.date = AddAccountingTableViewController?.dateLabel.text
-//                record.dateY = AddAccountingTableViewController?.dateY
-//                record.dateM = AddAccountingTableViewController?.dateM
-//                record.dateD = AddAccountingTableViewController?.dateD
-//                record.method = AddAccountingTableViewController?.methodLabel.text
-//                record.category = AddAccountingTableViewController?.categoryLabel.text
-//                record.remarks = AddAccountingTableViewController?.remarksTextField.text
-//                record.location = AddAccountingTableViewController?.locationTextField.text
-//
-//            default:
-//
-//                break
-//            }
             
             appDelegate.saveContext()
             print("帳務儲存中...")
@@ -155,66 +146,6 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
         
         present(imageSourceAlert, animated: true, completion: nil)
     }
-    
-//    @IBAction func eiChanged(_ sender: UISegmentedControl) {
-//
-//        AddAccountingTableViewController?.eiType = recordeiSegmentedControl.selectedSegmentIndex
-//
-//        switch recordeiSegmentedControl.selectedSegmentIndex {
-//
-//        case 0:
-//            AddAccountingTableViewController?.recordMethodLabel.text = AddAccountingTableViewController?.eMethod[0]
-//            AddAccountingTableViewController?.recordCategoryLabel.text = AddAccountingTableViewController?.eCategory[0]
-//
-//        case 1:
-//            AddAccountingTableViewController?.recordMethodLabel.text = AddAccountingTableViewController?.iMethod[0]
-//            AddAccountingTableViewController?.recordCategoryLabel.text = AddAccountingTableViewController?.iCategory[0]
-//
-//        default:
-//            break
-//        }
-//
-//        AddAccountingTableViewController?.recordMethodPicker.dataSource = AddAccountingTableViewController
-//        AddAccountingTableViewController?.recordCategoryPicker.dataSource = AddAccountingTableViewController
-//    }
-//
-//    @IBAction func selectedImage(_ sender: UIButton) {
-//
-//        let imageSourceAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//
-//        let cameraAction = UIAlertAction(title: "拍攝照片", style: .default) {
-//            (action) in
-//
-//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//
-//                let imagePicker = UIImagePickerController()
-//                imagePicker.allowsEditing = false
-//                imagePicker.sourceType = .camera
-//                imagePicker.delegate = self
-//
-//                self.present(imagePicker, animated: true, completion: nil)
-//            }
-//        }
-//
-//        let photoLibraryAction = UIAlertAction(title: "選擇圖片", style: .default) {
-//            (action) in
-//
-//            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-//
-//                let imagePicker = UIImagePickerController()
-//                imagePicker.allowsEditing = false
-//                imagePicker.sourceType = .photoLibrary
-//                imagePicker.delegate = self
-//
-//                self.present(imagePicker, animated: true, completion: nil)
-//            }
-//        }
-//
-//        imageSourceAlert.addAction(cameraAction)
-//        imageSourceAlert.addAction(photoLibraryAction)
-//
-//        present(imageSourceAlert, animated: true, completion: nil)
-//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

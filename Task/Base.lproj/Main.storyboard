@@ -644,7 +644,7 @@
                     <navigationItem key="navigationItem" title="新增帳務" id="kej-ZN-AYO">
                         <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="eB0-zQ-hHX">
                             <connections>
-                                <segue destination="Fz6-Kz-ElV" kind="unwind" unwindAction="exitWithSegue:" id="zjY-DK-n3o"/>
+                                <action selector="backToPrevious:" destination="O9I-aC-dJF" id="Q7A-jJ-6Tk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="tray.and.arrow.down.fill" catalog="system" id="a3M-x7-JCk">
@@ -660,7 +660,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLQ-KF-7c3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Fz6-Kz-ElV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3728.985507246377" y="129.91071428571428"/>
         </scene>
@@ -834,7 +833,7 @@
             <objects>
                 <tableViewController id="hHa-V6-F0S" customClass="MonthlyReportTableViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b8b-ZD-s2l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="187.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
                             <tableViewSection id="0DJ-SB-pMv">
@@ -1242,7 +1241,7 @@
         <!--儲蓄心願編列-->
         <scene sceneID="xvx-bR-NsI">
             <objects>
-                <viewController id="utl-cR-6F0" customClass="BudgetViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BudgetPage" id="utl-cR-6F0" customClass="BudgetViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ic-9w-Za8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

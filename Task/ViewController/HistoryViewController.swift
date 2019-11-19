@@ -100,6 +100,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let editAction = UIContextualAction(style: .destructive, title: "編輯") {
             (action, sourceView, completionHandler) in
             
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "BudgetPage") as? BudgetViewController {
+
+                controller.budget = self.budgets[indexPath.row]
+                self.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
+            }
+            
             completionHandler(true)
         }
         editAction.backgroundColor = .systemGray

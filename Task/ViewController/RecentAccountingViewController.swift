@@ -13,18 +13,26 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     
     var fetchResultController: NSFetchedResultsController<RecordMO>!
     
-    var records: [RecordMO] = []
+    //var records: [RecordMO] = []
+    
+    var records: [String:[RecordMO]] = [:]
+    var recordKey: [String] = []
+    var recordValue: [RecordMO] = []
     
     let dataImage = UIImage(systemName: "photo")?.withTintColor(.link).pngData()
+    
+    let formatter = DateFormatter()
     
     @IBOutlet weak var recentAccountingTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.dateFormat = "yyyy-MM-dd"
 
         // 從資料儲存區中讀取資料
         let fetchRequest: NSFetchRequest<RecordMO> = RecordMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "recordDate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "recordDate", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // 取得AppDelegate物件
@@ -40,7 +48,32 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
                 
                 if let fetchedObjects = fetchResultController.fetchedObjects {
                     
-                    records = fetchedObjects
+                    //records = fetchedObjects
+                    
+                    for record in fetchedObjects {
+                        
+                        if let date = record.recordDate {
+                            
+                            recordKey.append(formatter.string(from: date))
+                        }
+                    }
+                    recordKey = Array(Set(recordKey))
+                    print("日期： \(recordKey)")
+                    
+                    for date in recordKey {
+                        
+                        recordValue = []
+                        
+                        for record in fetchedObjects {
+                            
+                            if date == formatter.string(from: record.recordDate!) {
+                                
+                                recordValue.append(record)
+                            }
+                        }
+                        records[date] = recordValue
+                    }
+                    print("得到的東西：\(records)")
                 }
             } catch {
                 
@@ -58,23 +91,29 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+        let date = recordKey[section]
+        guard let rowsInSection = records[date] else { return 0 }
         
-        return records.count
+        // testRecords[recordDate[section]]!.count
+        
+        return rowsInSection.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentAccountingCell", for: indexPath) as! RecentAccountingTableViewCell
-        cell.recordImage.image = UIImage(data: records[indexPath.row].recordImage ?? dataImage!)
-        cell.recordCategory.text = records[indexPath.row].recordCategory
-        cell.recordRemarks.text = records[indexPath.row].recordRemarks == "" ? "備註" : records[indexPath.row].recordRemarks
-        cell.recordLocation.text = records[indexPath.row].recordLocation == "" ? "地點" : records[indexPath.row].recordLocation
-        cell.recordMethod.text = records[indexPath.row].recordMethod
-        cell.recordMoney.text = records[indexPath.row].recordMoney
+        
+        cell.recordImage.image = UIImage(data: records[recordKey[indexPath.section]]?[indexPath.row].recordImage ?? dataImage!)
+        cell.recordCategory.text = records[recordKey[indexPath.section]]?[indexPath.row].recordCategory
+        cell.recordRemarks.text = records[recordKey[indexPath.section]]?[indexPath.row].recordRemarks == "" ? "備註" : records[recordKey[indexPath.section]]?[indexPath.row].recordRemarks
+        cell.recordLocation.text = records[recordKey[indexPath.section]]?[indexPath.row].recordLocation == "" ? "地點" : records[recordKey[indexPath.section]]?[indexPath.row].recordLocation
+        cell.recordMethod.text = records[recordKey[indexPath.section]]?[indexPath.row].recordMethod
+        cell.recordMoney.text = records[recordKey[indexPath.section]]?[indexPath.row].recordMoney
                 
         return cell
     }
@@ -93,8 +132,9 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RecentAccountingHeaderView")
-        headerView?.contentView.backgroundColor = .systemGray
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RecentAccountingHeaderView") as! RecentAccountingHeaderView
+        headerView.contentView.backgroundColor = .systemGray
+        headerView.dateLabel.text = recordKey[section]
         
         return headerView
     }
@@ -122,9 +162,8 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
             
             if let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddAccountingPage") as? AddAccountingViewController {
 
-                //controller.hiddenSaveButton.isHidden = false
-                //controller.inputMoneyTextField.text = String(self.records[indexPath.row].money)
-                self.present(controller, animated: true, completion: nil)
+                controller.record = self.records[self.recordKey[indexPath.section]]?[indexPath.row]
+                self.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
             }
                     
             completionHandler(true)
@@ -148,8 +187,9 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
         switch type {
         
         case .insert:
-            let newIndexPath = IndexPath(row: 0, section: 0)
-            recentAccountingTableView.insertRows(at: [newIndexPath], with: .fade)
+            if let newIndexPath = newIndexPath {
+                recentAccountingTableView.insertRows(at: [newIndexPath], with: .fade)
+            }
             
         case .delete:
             if let indexPath = indexPath {
@@ -165,9 +205,35 @@ class RecentAccountingViewController: UIViewController, UITableViewDataSource, U
             recentAccountingTableView.reloadData()
         }
         
+//        if let fetchedObjects = controller.fetchedObjects {
+//
+//            records = fetchedObjects as! [RecordMO]
+//        }
+        
         if let fetchedObjects = controller.fetchedObjects {
             
-            records = fetchedObjects as! [RecordMO]
+            for record in (fetchedObjects as! [RecordMO]) {
+                
+                if let date = record.recordDate {
+                    
+                    recordKey.append(formatter.string(from: date))
+                }
+            }
+            recordKey = Array(Set(recordKey))
+            
+            for date in recordKey {
+                
+                recordValue = []
+                
+                for record in (fetchedObjects as! [RecordMO]) {
+                    
+                    if date == formatter.string(from: record.recordDate!) {
+                        
+                        recordValue.append(record)
+                    }
+                }
+                records[date] = recordValue
+            }
         }
     }
     

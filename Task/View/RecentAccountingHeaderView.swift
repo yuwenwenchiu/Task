@@ -10,6 +10,8 @@ import UIKit
 
 class RecentAccountingHeaderView: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var sumLabel: UILabel!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

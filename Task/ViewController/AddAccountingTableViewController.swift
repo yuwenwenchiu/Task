@@ -22,12 +22,6 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     
     var eiType = 0
     
-//    let formatterY = DateFormatter()
-//    var dateY: String!
-//    let formatterM = DateFormatter()
-//    var dateM: String!
-//    let formatterD = DateFormatter()
-//    var dateD: String!
     let formatter = DateFormatter()
     
     var eMethod = ["現金", "信用卡", "轉帳", "Apple Pay", "Line Pay"]
@@ -50,17 +44,6 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-//        formatterY.dateFormat = "yyyy"
-//        dateY = formatterY.string(from: Date())
-//        formatterM.dateFormat = "MM"
-//        dateM = formatterM.string(from: Date())
-//        formatterD.dateFormat = "dd"
-//        dateD = formatterD.string(from: Date())
-//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
-        
-//        methodLabel.text = eMethod[0]
-//        categoryLabel.text = eCategory[0]
 
         formatter.dateFormat = "yyyy-MM-dd"
         recordDateLabel.text = formatter.string(from: Date())
@@ -92,22 +75,6 @@ class AddAccountingTableViewController: UITableViewController, UIPickerViewDeleg
     @IBAction func closeRecordLocaitonKeyboard(_ sender: UITextField) {
         
     }
-    
-//    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
-//
-//        dateY = formatterY.string(from: sender.date)
-//        dateM = formatterM.string(from: sender.date)
-//        dateD = formatterD.string(from: sender.date)
-//        dateLabel.text = dateY + "-" + dateM + "-" + dateD
-//    }
-//
-//    @IBAction func closeRemarksKeyboard(_ sender: UITextField) {
-//
-//    }
-//
-//    @IBAction func closeLocationKeyboard(_ sender: UITextField) {
-//
-//    }
     
     @IBAction func searchNearby(_ sender: UIButton) {
         

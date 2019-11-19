@@ -16,8 +16,21 @@ class BudgetViewController: UIViewController {
     
     var budget: BudgetMO!
     
+    let formatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        if budget != nil {
+            
+            budgetTextField.text = budget.budgetMoney
+            BudgetTableViewController?.budgetNameTextField.text = budget.budgetName
+            BudgetTableViewController?.budgetDateLabel.text = formatter.string(from: budget.budgetDate ?? Date())
+            BudgetTableViewController?.budgetDatePicker.date = budget.budgetDate ?? Date()
+            BudgetTableViewController?.monthlyDepositLabel.text = budget.budgetDeposit
+        }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -53,7 +66,7 @@ class BudgetViewController: UIViewController {
             print("心願儲存中...")
         }
         
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func inputBudget(_ sender: UITextField) {

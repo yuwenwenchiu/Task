@@ -78,7 +78,8 @@ class NearbyLocationsViewController: UIViewController, CLLocationManagerDelegate
                 self.searchResults = self.searchAllResults
                 
                 self.locationsTableView.reloadData()
-                print("搜尋結果：\(self.searchResults)")
+                
+                //print("搜尋結果：\(self.searchResults)")
             }
         }
     }
