@@ -7,6 +7,12 @@
         <attribute name="budgetMoney" attributeType="String"/>
         <attribute name="budgetName" attributeType="String"/>
     </entity>
+    <entity name="Category" representedClassName="CategoryMO" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Method" representedClassName="MethodMO" syncable="YES" codeGenerationType="class">
+        <attribute name="methodName" attributeType="String"/>
+    </entity>
     <entity name="Record" representedClassName="RecordMO" syncable="YES" codeGenerationType="class">
         <attribute name="recordCategory" attributeType="String"/>
         <attribute name="recordDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -21,5 +27,7 @@
     <elements>
         <element name="Budget" positionX="-63" positionY="63" width="128" height="118"/>
         <element name="Record" positionX="-272.5" positionY="16.7578125" width="128" height="178"/>
+        <element name="Method" positionX="-171" positionY="81" width="128" height="58"/>
+        <element name="Category" positionX="-162" positionY="90" width="128" height="58"/>
     </elements>
 </model>

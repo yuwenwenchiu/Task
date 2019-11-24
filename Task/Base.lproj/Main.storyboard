@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rfa-Hx-Irb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1123,7 +1123,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收支類別管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-ko-9OY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收支方式管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlL-ko-9OY">
                                                     <rect key="frame" x="60" y="18.5" width="125" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="6aY-Z8-Xcs"/>
@@ -1133,8 +1133,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-IR-VIq">
-                                                    <rect key="frame" x="15" y="16" width="30" height="31"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-IR-VIq">
+                                                    <rect key="frame" x="15" y="18" width="30" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="3jL-Oe-Byh"/>
                                                         <constraint firstAttribute="height" constant="30" id="KJB-J9-XJn"/>
@@ -1149,7 +1149,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="99E-Zh-jqy" kind="show" id="2b3-vm-5Lx"/>
+                                            <segue destination="y4U-pm-tgR" kind="show" id="Bg1-dF-hKZ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="62" id="aKi-qv-2WM">
@@ -1159,7 +1159,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收支方式管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="red-og-tuK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收支類別管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="red-og-tuK">
                                                     <rect key="frame" x="60" y="18.5" width="125" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="aPm-yF-tLQ"/>
@@ -1169,8 +1169,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Oyh-Mz-l8X">
-                                                    <rect key="frame" x="15" y="18" width="30" height="26"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Oyh-Mz-l8X">
+                                                    <rect key="frame" x="15" y="16" width="30" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="3WP-9s-O7l"/>
                                                         <constraint firstAttribute="height" constant="30" id="pxO-qi-OvH"/>
@@ -1185,7 +1185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="y4U-pm-tgR" kind="show" id="j57-2S-IPC"/>
+                                            <segue destination="99E-Zh-jqy" kind="show" id="CHx-YD-TO4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="62" id="yCN-Ph-cUi">
@@ -1236,7 +1236,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBs-Qs-t08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="1544"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="1543.5267857142856"/>
         </scene>
         <!--儲蓄心願編列-->
         <scene sceneID="xvx-bR-NsI">
@@ -1544,7 +1544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qns-8B-aBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5411.594202898551" y="1543.5267857142856"/>
+            <point key="canvasLocation" x="5412" y="2243"/>
         </scene>
         <!--Category Table View Controller-->
         <scene sceneID="423-kA-0Rb">
@@ -1572,7 +1572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSf-3N-Z9k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6262" y="1544"/>
+            <point key="canvasLocation" x="6261" y="2243"/>
         </scene>
         <!--收支方式管理-->
         <scene sceneID="coQ-89-jMy">
@@ -1592,6 +1592,9 @@
                                     <segment title="支出"/>
                                     <segment title="收入"/>
                                 </segments>
+                                <connections>
+                                    <action selector="eiChanged:" destination="y4U-pm-tgR" eventType="valueChanged" id="U19-QM-TKB"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LG-yx-vWE">
                                 <rect key="frame" x="0.0" y="148" width="414" height="665"/>
@@ -1621,7 +1624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kA-eA-cJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5412" y="2243"/>
+            <point key="canvasLocation" x="5412" y="1544"/>
         </scene>
         <!--Method Table View Controller-->
         <scene sceneID="bPf-R1-PRh">
@@ -1649,7 +1652,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld1-Z4-L97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6262" y="2243"/>
+            <point key="canvasLocation" x="6261" y="1544"/>
         </scene>
         <!--關於心願記帳-->
         <scene sceneID="Rgk-Fu-3Gn">

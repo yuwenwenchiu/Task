@@ -147,10 +147,10 @@
 				8174A99D234C5B7A00A32C54 /* BudgetViewController.swift */,
 				81B5C02E234B82F40047CE7E /* BudgetTableViewController.swift */,
 				81B5C032234B854C0047CE7E /* HistoryViewController.swift */,
-				8174A9A4234C660000A32C54 /* CategoryViewController.swift */,
-				8174A9A6234C661F00A32C54 /* CategoryTableViewController.swift */,
 				8174A9AC234C69F500A32C54 /* MethodViewController.swift */,
 				8174A9AE234C6A0F00A32C54 /* MethodTableViewController.swift */,
+				8174A9A4234C660000A32C54 /* CategoryViewController.swift */,
+				8174A9A6234C661F00A32C54 /* CategoryTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

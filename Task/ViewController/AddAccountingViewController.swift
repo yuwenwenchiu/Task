@@ -74,7 +74,13 @@ class AddAccountingViewController: UIViewController, UIImagePickerControllerDele
             record.recordeiType = Int16(recordeiSegmentedControl.selectedSegmentIndex)
             record.recordImage = recordImageButton.currentImage?.pngData()
             record.recordMoney = recordMoneyTextField.text
-            record.recordDate = AddAccountingTableViewController?.recordDatePicker.date
+            //record.recordDate = AddAccountingTableViewController?.recordDatePicker.date
+            record.recordDate = formatter.date(from: (AddAccountingTableViewController?.recordDateLabel.text)!)
+            
+            print("picker：\(AddAccountingTableViewController?.recordDatePicker.date)")
+            print("label：\(AddAccountingTableViewController?.recordDateLabel.text)")
+            print("stringTodate：\(formatter.date(from: (AddAccountingTableViewController?.recordDateLabel.text)!))")
+            
             record.recordMethod = AddAccountingTableViewController?.recordMethodLabel.text
             record.recordCategory = AddAccountingTableViewController?.recordCategoryLabel.text
             record.recordRemarks = AddAccountingTableViewController?.recordRemarksTextField.text

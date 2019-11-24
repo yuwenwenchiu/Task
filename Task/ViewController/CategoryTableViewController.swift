@@ -9,6 +9,8 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
+    
+    var categorys: [CategoryMO] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
